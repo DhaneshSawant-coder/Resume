@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me - Dhanesh Sudhir Sawant</title>
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>About Me</h1>
+        </header>
+        {% if profile %}
+        <section class="about-profile">
+            {% if profile.profile_picture %}
+            <img src="{{ profile.profile_picture.url }}" alt="{{ profile.name }}" class="profile-image" />
+            {% endif %}
+            <h2>{{ profile.name }}</h2>
+            <p><strong>Bio:</strong> {{ profile.bio }}</p>
+            <br>
+            <p><strong>Hobbies:</strong> {{ profile.hobbies }}</p>
+            <br>
+            <p><strong>Skills:</strong> {{ profile.skills }}</p>
+            <br>
+            <p><strong>Languages:</strong> {{ profile.languages }}</p>
+        </section>
+        {% else %}
+        <p>No profile information available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
